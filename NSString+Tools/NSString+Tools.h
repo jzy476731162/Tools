@@ -20,4 +20,9 @@
 
 //返回构造好的时间字符串  60s-> 00:00:60
 + (NSString *)timeStringFromSeconds:(int)totalSeconds;
+
+/**
+ *  C String -> NSDate
+ */
+- (NSDate *)dateFromISO8601String:(NSString *)string;
 @end

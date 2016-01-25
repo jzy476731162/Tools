@@ -98,4 +98,20 @@
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
+
+- (NSDate *)dateFromISO8601String:(NSString *)string {
+    if (!string) {
+        return nil;
+    }
+    struct tm tm;
+    time_t t;
+    
+    const char *time = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    strptime(time, "%Y-%m-%d %H:%M:%S%z", &tm);
+    tm.tm_isdst = -1;
+
+    t = mktime(&tm);
+    
+    return [NSDate dateWithTimeIntervalSince1970:t + [[NSTimeZone localTimeZone] secondsFromGMT]];
+}
 @end
