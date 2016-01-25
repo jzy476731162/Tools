@@ -23,6 +23,7 @@
 // Short string utilities
 - (NSString *) stringWithDateStyle: (NSDateFormatterStyle) dateStyle timeStyle: (NSDateFormatterStyle) timeStyle;
 - (NSString *) stringWithFormat: (NSString *) format;
+- (NSString *) ISO8601StringWithCString:(const char*)dateFormatter;//"%Y-%m-%d %H:%M:%S"
 @property (nonatomic, readonly) NSString *shortString;
 @property (nonatomic, readonly) NSString *shortDateString;
 @property (nonatomic, readonly) NSString *shortTimeString;
